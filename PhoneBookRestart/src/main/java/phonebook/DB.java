@@ -3,13 +3,13 @@ package phonebook;
 import java.sql.*;
 import java.util.ArrayList;
 
-//Ez a modell része az applikációnak
+
 
 public class DB {
     final String JDBC_DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
     final String URL ="jdbc:derby:sampleDB;create=true";
 
-    //Külső adatbázis esetén meg kellene adni. Ez most egy beágyazott adatbázis, ezért nem szükséges!
+    
     final String USERNAME = "";
     final String PASSWORD = "";
 
@@ -18,7 +18,7 @@ public class DB {
     DatabaseMetaData dbmd = null;
 
     public DB() {
-        //Megpróbáljuk életre kelteni az adatbázist
+       
         try {
             conn = DriverManager.getConnection(URL);
             System.out.println("A híd létrejött!");
@@ -27,7 +27,7 @@ public class DB {
             System.out.println("" + ex);
         }
 
-        //Ha életre kelt, csinálunk egy megpakolható teherautót
+       
         if (conn != null) {
             try {
                 createStatement = conn.createStatement();
@@ -37,7 +37,7 @@ public class DB {
             }
         }
 
-        //Megnézzük, hogy üres-e az adatbázis, megnézzük létezik-e az adott adattábla
+        
         try {
             dbmd = conn.getMetaData();
         } catch (SQLException ex) {
@@ -56,7 +56,7 @@ public class DB {
         }
     }
 
-    //Kikérünk minden kontaktot
+    
     public ArrayList<Person> getAllContacts(){
         String sql = "select * from contacts";
         ArrayList<Person> persons = null;
@@ -104,7 +104,7 @@ public class DB {
 
     }
 
-    //Felhasználó módosítása. Mivel megkell mondani azt is, hogy hol történjen a a módosítás, ezért kell ID-t is létrehozni a Personnek.
+    
     public void updateContacts(Person person) {
         try {
             String sql = "update contacts set lastname = ?, firstname = ?, email = ? where id = ?";
