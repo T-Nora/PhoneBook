@@ -2,10 +2,7 @@ package phonebook;
 
 import javafx.beans.property.SimpleStringProperty;
 
-/*
-    A SimpleStringProperty miatt lesz képes kommunikálni az adattáblával, sima string ezt nem teszi lehetővé.
-    Hordozó, ami kompatiblilis a tableview elemmel.
- */
+
 public class Person {
     private final SimpleStringProperty firstName;
     private final SimpleStringProperty lastName;
